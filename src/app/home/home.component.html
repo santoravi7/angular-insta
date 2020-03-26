@@ -1,0 +1,150 @@
+<div class="navbar-header navbar-fixed-top">  
+    <div class="container">
+    <a class="navbar-brand" href="/home/{{user.id}}">
+        <h3>Instagram</h3>
+    </a>
+    </div>
+</div>
+
+<div class="row mtop-50">
+
+<div class="row">
+  <div *ngIf="!user.posts.length>0" class="container"style="padding:15px !important;" >
+    <div class="nopost">
+      <img  src="https://image.flaticon.com/icons/svg/1362/1362857.svg" />
+      <h3>No Posts Yet</h3>
+      <h3>add a post now</h3>
+      <input type='file' (change)="onSelectFile($event,user)" multiple>
+    </div>
+  </div>
+  <div *ngIf="user.posts" class="container"style="padding:15px !important;" >
+    <div *ngFor="let post of user.posts" class="col-md-8 col-xs-12 col-sm-12 col-lg-8 post-wrapper">
+      <div class="post-header">
+        <div class="profile-pic">
+          <img src="{{post.profilepic}}"/>
+        </div>
+        <h4 class="profile-name">{{post.name}}</h4>
+      </div>  
+      <div class="post-body">
+        <div class="crop">
+          <img src="{{post.img}}"/>
+        </div>
+      </div>
+      <div class="post-footer">
+        <div class="post-btn-section">
+          <div class="like">
+            <img *ngIf="!post.savepost" src="https://image.flaticon.com/icons/svg/1077/1077035.svg"/>
+          </div>
+          <div class="comment">
+            <img src="https://image.flaticon.com/icons/svg/2462/2462719.svg"/>
+          </div>
+          <div class="right">
+            <div class="save-post">
+              <img *ngIf="!post.savepost"src="https://image.flaticon.com/icons/svg/1159/1159580.svg"/>
+              <img *ngIf="post.savepost"src="https://image.flaticon.com/icons/svg/1159/1159823.svg"/>
+            </div>
+          </div>
+        </div>
+        <div class="liked-by">
+          <div class="likedby-profile-pic">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQIi3vEDnvue29P8-GSDrcxFn-pGNcSjoRQomgvqvxPqBB9tIwL"/>
+          </div>
+          <div *ngIf="!user.liked>0" class="likedby-uname">Liked by <span class="bold">Santoravi</span> and <span class="bold">{{post.likes}} others</span> 
+          </div>
+        </div>
+        <div class="caption-div">
+            <div class="current-user">
+              {{post.name}}
+            </div>
+            <div class="caption">
+              {{post.caption}}
+            </div>
+        </div>
+        <div class="comments-section">
+          <div class="view-all">View all <span>160</span> comments</div>
+          <div class="current-user">
+              Santoravi
+            </div>
+            <div class="caption">
+              Comments sent by me !!!
+            </div>
+        </div>
+        <div class="comments-posted-time">
+          {{post.posttime}} hours ago
+        </div>
+        <div class="comment-textbox">
+          <textarea rows="3"></textarea>
+          <button>Post</button>
+        </div>
+      </div>
+    </div>
+    <div class="right-nav hidden-xs hidden-sm">
+      <div class="myprofile">
+        <div class="myprofile-pic">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQIi3vEDnvue29P8-GSDrcxFn-pGNcSjoRQomgvqvxPqBB9tIwL"/>
+        </div>
+        <div class="profile-main">
+          <h4 class="profile-name">santo ravi</h4>
+          <h5 class="profile-short">santo</h5>
+        </div>
+        <div class="profile-main add-post">
+          <h5>Add Post</h5>
+          <input type='file' (change)="onSelectFile($event,user)" multiple>
+        </div>
+      </div>
+      <div class="stories fake-scroll">
+          <div class="stories-watch">
+            <h5 style="display: inline-block">Stories</h5>
+            <h5 class="pull-right watch-all" (click)="watchAll(user);">Watch All</h5>
+          </div>
+          <div *ngFor="let story of user.stories"  class="stories-wrapper">
+              <div class="profile-pic">
+                <img src="{{story.profilepic}}"/>
+              </div>
+              <div class="stories-main">
+                <button (click)="openModal(template);">
+                <h4 class="stories-name">{{story.name}}</h4>
+                <h5 class="posted-time">{{story.posttime}} hours ago</h5>
+                </button>
+              </div>
+              <ng-template #template>
+                <div class="modal-header modal-sm">
+                  <div class="profile-pic">
+                      <img src="{{story.profilepic}}"/>
+                    </div>
+                    <div class="stories-main">
+                      <button (click)="openModal(template);">
+                      <h4 class="stories-name fwhite">{{story.name}}</h4>
+                      <h5 class="posted-time">{{story.posttime}} hours ago</h5>
+                      </button>
+                    </div>
+                  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body modal-sm">
+                    
+                    <img src="{{story.img}}"/>
+                </div>
+              </ng-template>
+          </div>
+      </div>
+      <div class="stories" style="overflow:hidden">
+          <div class="stories-watch">
+            <h5 style="display: inline-block">Suggestions for you</h5>
+            <h5 class="pull-right watch-all">See All</h5>
+          </div>
+          <div *ngFor="let suggestion of user.suggestions"   class="stories-wrapper">
+              <div class="profile-pic">
+                <img src="{{suggestion.profilepic}}"/>
+              </div>
+              <div class="stories-main">
+                <h4 class="stories-name">{{suggestion.name}}</h4>
+                <h5 class="posted-time">followed by {{suggestion.followedby}}</h5>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

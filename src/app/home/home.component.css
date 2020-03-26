@@ -1,0 +1,531 @@
+body{
+  background-color: #f5f5f5 !important;
+}
+
+.container-fluid{
+  padding: 0px !important;
+}
+
+div.navbar-fixed-top {
+    z-index: 2;
+}
+.whitebg, .navbar-header {
+    background: #fff;
+}
+.navbar-header {
+    float: none;
+    box-shadow: 1px 1px 1px #dadada;
+}
+.navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 1px;
+}
+
+.fwhite{
+  color: #fff;
+}
+
+.nopost{
+  width:150px;
+  height: 150px;
+  margin: 0px auto;
+  vertical-align: middle;
+  margin-top: 60px;
+}
+
+.nopost img{
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 768px){
+    .navbar-fixed-top, .navbar-fixed-bottom {
+        border-radius: 0;
+    }
+    .navbar-toggle {
+        display: none;
+    }
+    
+}
+
+@media (min-width: 1200px){ 
+  .right-nav {
+    width: 23% !important;
+    right: 140px !important;
+  }
+}
+
+.cḷr-div{
+  clear: both;
+  height: 20px;
+}
+
+.sr-only {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+.navbar-toggle .icon-bar {
+    background: #ccc !important;
+}
+
+.navbar-toggle .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+}
+
+.navbar-toggle .icon-bar+.icon-bar {
+    margin-top: 4px;
+}
+
+.left {
+    float: left !important;
+}
+
+.navbar-brand {
+    height: 50px;
+    padding: 10px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    color: #000;
+    font-weight: 900;
+    width: 170px;
+    display: block;
+    padding-left: 35px;
+    font-family: lato;
+    text-decoration: none;
+}
+
+.navbar-brand h3{
+  margin: 0px;
+  font-size: 21px;
+}
+
+.navbar-brand>img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.right {
+    float: right !important;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-header li.dropdown {
+    margin-right: 30px;
+    margin-top: 15px;
+}
+
+.navbar-header li.dropdown {
+    float: right;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.navbar-header li.dropdown>a {
+    text-decoration: none !important;
+    color: #ccc;
+}
+
+.caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px solid;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+
+.navbar-header li.dropdown .dropdown-menu {
+    right: 0;
+    left: inherit;
+    border-radius: 0;
+    top: 24px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.navbar-header li.dropdown .dropdown-menu a {
+    color: #5e6268;
+    text-transform: capitalize;
+}
+
+.dropdown-menu>li>a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+}
+
+
+
+.navbar-toggle {
+    background-color: #f5f5f5;
+    border: 0;
+}
+
+.navbar-toggle {
+    position: relative;
+    float: right;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-right: 15px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.navbar-fixed-top, .navbar-fixed-bottom {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.mtop-50{
+  margin-top: 60px;
+}
+
+.profile-pic{
+  width: 35px;
+  border-radius: 50%;
+  overflow: hidden;
+  height: 35px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.likedby-profile-pic{
+  width: 25px;
+  border-radius: 50%;
+  overflow: hidden;
+  height: 25px;
+  display: inline-block;
+  vertical-align: middle;
+
+}
+
+.profile-pic img{
+  width: 100%;
+  height: 100%;
+}
+
+.post-header{
+  padding: 12px 20px;
+  border: 1px solid #dedede;
+  background: #fff;
+}
+
+.post-body{
+  width:100%;
+  height: 450px;
+  overflow: hidden;
+}
+
+.post-body .crop {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.post-body .crop img{
+  display: block;
+  min-width: 100%;
+  min-height: 100%;
+  margin: auto;
+  position: absolute;
+  top: -100%;
+  right: -100%;
+  bottom: -100%;
+  left: -100%;
+}
+
+.post-body img, .save-post img, .comment img, .liked-by img{
+  width: 100%;
+}
+
+.post-btn-section, .liked-by{
+  padding: 0px 16px;
+}
+
+.post-btn-section .like,.post-btn-section .comment, .post-btn-section .save-post{
+  width: 45px;
+  height: 45px;
+  padding: 10px;
+  display: inline-block;
+}
+
+.liked-by{
+  padding-left: 25px;
+  margin-top: 2px;
+}
+
+.likedby-uname{
+  display: inline-block;
+  margin-left: 15px;
+  font-size: 14px;
+  font-family: lato;
+}
+
+.bold{
+  font-weight: 900;
+}
+
+.current-user{
+  font-weight: 900;
+  font-family: lato;
+  font-size: 14px;
+ 
+}
+
+.caption-div, .comments-section{
+  padding: 0px 25px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.caption-div .caption, .caption-div .current-user, .comments-section .current-user, .comments-section .caption{
+  display: inline-block;
+}
+.caption{
+   margin-left: 10px;
+}
+
+.view-all{
+  color: #a0a0a0;
+  margin-bottom: 10px;
+}
+
+.post-footer{
+  background: #fff;
+  border: 1px solid #dbdbdb;
+}
+
+.comments-posted-time{
+  padding: 8px;
+  padding-left: 25px;
+  color: #999;
+  padding-bottom: 15px;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.comment-textbox{
+  padding-left: 25px;
+  height: 62px;
+}
+
+.comment-textbox textarea{
+  padding: 1px;
+  border: none;
+  outline: none;
+  width: calc(100% - 50px);
+}
+
+.comment-textbox button{
+  background: none;
+  color: #2c6f9e;
+  border: none;
+  vertical-align: top;
+  margin-top: 10px;
+  font-size: 14px;
+  font-family: lato;
+  font-weight: 600;
+}
+
+.post-wrapper{
+  margin-bottom: 20px;
+}
+
+.profile-name{
+  display: inline-block;
+  margin-left: 15px;
+  vertical-align: top;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.myprofile-pic{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  vertical-align: bottom;
+  display: inline-block;
+}
+
+.myprofile-pic img{
+  width: 100%;
+  height: 100%;
+}
+
+.profile-short{
+  display: inline-block;
+  margin-left: 15px;
+  margin-top: 0px;
+  color: #999;
+}
+
+.profile-main{
+  display: inline-grid;
+}
+
+.stories{
+  background: #fff;
+  border: 1px solid #dbdbdb;
+  height: 225px;
+  margin-top: 20px;
+  border-radius: 5px;
+  padding: 16px;
+  padding-top: 10px;
+}
+
+.watch-all{
+  font-weight: 600;
+  display: inline-block;
+  font-size: 14px;
+  font-family: lato;
+}
+
+.stories-name{
+  display: inline-block;
+  margin: 0;
+  vertical-align: top;
+  margin-left: 15px;
+  font-size: 14px;
+  font-family: lato;
+  font-weight: 600;
+}
+
+.stories-main{
+  vertical-align: top;
+  display: inline-grid;
+}
+
+.stories-main button{
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.stories-main button .stories-name{
+  float: left;
+}
+
+.stories-main button .posted-time{
+  text-align: left;
+  clear: both;
+  margin-top: 20px;
+}
+
+.posted-time{
+  display: block;
+  margin-left: 15px;
+  margin-top: 5px;
+  color: #999;
+  font-size: 10px;
+  text-transform: uppercase;
+  margin-bottom: 0px;
+  text-align: left;
+}
+
+.stories-wrapper{
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.right-nav{
+  width: 22%;
+  position: fixed;
+  right: 200px;
+}
+
+.add-post h5{
+  text-align: right;
+  margin-top: 20px;
+}
+
+.add-post{
+  float: right;
+}
+
+.add-post input{
+  opacity: 0;
+  width: 100px;
+  position: relative;
+  top: -28px;
+}
+
+.fake-scroll{
+  overflow-y: scroll; 
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #585858;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(0, 0, 0);
+}

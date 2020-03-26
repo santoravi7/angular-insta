@@ -1,0 +1,47 @@
+<div id="event-creation-container" class="">
+  <div class="row">
+   
+    <div class="">
+      <div class="login-form">
+          <h2>Instagram</h2>
+          <div class="signup-text">
+            <h3>Signup to see photos and videos from your friends!!</h3>
+          </div>
+          <div class="form-group">
+              <div *ngIf="validate==false"><p class="errors">Email Id already Exists</p></div>
+            <h4>Email</h4>
+            <input type="text" class="form-text-field" id="email" (keydown.tab)="validate_form('email')" (focusout)="validate_form('email')">
+            <span class="errors" *ngIf="email">{{email}}</span>
+          </div> 
+          <div class="form-group">
+              <div *ngIf="validate==false"><p class="errors">Full Name cannot be null</p></div>
+            <h4>Full Name</h4>
+            <input type="text" class="form-text-field" id="full-name" (keydown.tab)="validate_form('fullname')" (focusout)="validate_form('fullname')">
+            <span class="errors" *ngIf="fullname">{{fullname}}</span>
+          </div>  
+          <div class="form-group">
+              <div *ngIf="validate==false"><p class="errors">Username or password incorrect</p></div>
+            <h4>Username</h4>
+            <input type="text" class="form-text-field" id="user-name" (keydown.tab)="validate_form('username')" (focusout)="validate_form('username')">
+            <span class="errors" *ngIf="username">{{username}}</span>
+          </div>   
+          <div class="form-group">
+            <h4>Password</h4>
+            <input type="password" class="form-text-field" id="password" (keydown.tab)="validate_form('password')" (focusout)="validate_form('password')">
+            <span class="errors" *ngIf="password">{{password}}</span>            
+          </div>
+          <div class="btn-section">
+            <div class="clr10"></div>
+              <button id="login" class="btn btn-primary event-view-btn" (click)="validate_form('register');" >Register</button>
+          </div>
+          
+      </div>          
+      <div *ngIf="validate"></div> 
+      <div class="signup-wrapper mtop-0">
+        <div class="signup">
+          <h4>Already have an account? <a [routerLink]="['/']" class=""><span>Login</span></a></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
