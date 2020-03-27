@@ -63,7 +63,7 @@
             </div>
         </div>
         <div class="comments-section">
-          <div *ngIf="post.comments.length>3">
+          <div *ngIf="post.comments.length>2">
               <div  class="view-all">
                 View all <span>{{post.comments.length}}</span> comments
               </div>
@@ -74,14 +74,15 @@
                   <div class="disp-com">{{comment.comment}}</div>
               </div>
           </div>
-          <div *ngIf="post.comments.length<3">
-              <div class="current-user">
-                {{user.username}}
-              </div>
+          <div *ngIf="post.comments.length<2">
               <div *ngFor="let comment of (post.comments)"class="caption disp-com">
+                  <div class="current-user">
+                    {{user.username}}
+                  </div>
                   <div class="">{{comment.comment}}</div>
               </div>
           </div>
+          {{post.comments.length}}
         </div>
         <div class="comments-posted-time">
           {{post.posttime}} hours ago

@@ -29,6 +29,34 @@ export class InMemoryDataService implements InMemoryDbService {
           savepost: false,
           posttime: "5",
           liked: false
+        },
+        {
+          id:2,
+          name:"ScratchedStories",
+          profilepic: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQIi3vEDnvue29P8-GSDrcxFn-pGNcSjoRQomgvqvxPqBB9tIwL",
+          caption:"#instaedits #doubletap",
+          img:"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSA2zrAgbxuYjZZzrMYPefp6oEjrk48Yy0YdYAVkhGRDlR1rrzw",
+          likes:"251",
+          comments:[{
+            comment:"heyyyyy"
+          }],
+          savepost: false,
+          posttime: "5",
+          liked: false
+        },
+        {
+          id:3,
+          name:"ScratchedStories",
+          profilepic: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQIi3vEDnvue29P8-GSDrcxFn-pGNcSjoRQomgvqvxPqBB9tIwL",
+          caption:"#instaedits #doubletap",
+          img:"https://img.wallpapersafari.com/desktop/1920/1080/59/57/862AkR.jpg",
+          likes:"251",
+          comments:[{
+            comment:"heyyyyy"
+          }],
+          savepost: false,
+          posttime: "5",
+          liked: false
         }],
         stories : [
           {
