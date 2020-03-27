@@ -77,6 +77,21 @@ export class HomeComponent implements OnInit {
     this.usersService.updateUser(user).subscribe(); 
   }
 
+  updateProfile(event,user) {
+    if (event.target.files && event.target.files[0]) {
+        var filesAmount = event.target.files.length;
+        for (let i = 0; i < filesAmount; i++) {
+                var reader = new FileReader();
+
+                reader.onload = (event:any) => {
+                   user.profilepic=event.target.result; 
+                }
+                reader.readAsDataURL(event.target.files[i]);
+        }
+    }
+    this.usersService.updateUser(user).subscribe(); 
+  }
+
   addComment(postId:number,user:User):void{
     var newComment = (<HTMLInputElement>document.getElementById("new-comment")).value;
     console.log("new comment === "+newComment+"---id==="+postId+"==user---"+user.posts[postId-1]);

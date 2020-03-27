@@ -96,7 +96,10 @@
     <div *ngIf="user.posts.length>0" class="right-nav hidden-xs hidden-sm">
       <div class="myprofile">
         <div class="myprofile-pic">
-          <img src="{{user.profilepic}}"/>
+          <div class="crop">
+            <input class="updateprofile" type='file' (change)="updateProfile($event,user)" multiple>
+            <img src="{{user.profilepic}}"/>
+          </div>
         </div>
         <div class="profile-main">
           <h4 class="profile-name">{{user.username}}</h4>
