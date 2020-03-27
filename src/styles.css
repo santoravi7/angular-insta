@@ -39,6 +39,7 @@ app-home{
   height: 90%;
   background: #000;
   border-radius: 0px;
+      margin: 0px auto;
 }
 
 .modal-body{

@@ -19,6 +19,44 @@
       <input type='file' (change)="onSelectFile($event,user)" multiple>
     </div>
   </div>
+  <div class="hidden-lg hidden-md col-sm-12 col-xs-12">
+    <div class="myprofile" style="padding: 0px 30px;">
+        
+        <div *ngFor="let story of user.stories" style="display:inline-block; width:65px;">
+          <button style="border: none;background: none;outline: none;" (click)="openModal(templateXS);">
+          <div class="myprofile-pic">
+            <div class="crop">
+              <img src="{{story.profilepic}}"/>
+            </div>          
+          </div>
+          </button>
+          <ng-template class="col-sm-12 col-xs-12" #templateXS>
+            <div class="modal-header modal-sm">
+              <div class="profile-pic">
+                  <img src="{{story.profilepic}}"/>
+                </div>
+                <div class="stories-main">
+                  <button (click)="openModal(template);">
+                  <h4 class="stories-name fwhite">{{story.name}}</h4>
+                  <h5 class="posted-time">{{story.posttime}} hours ago</h5>
+                  </button>
+                </div>
+              <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body modal-sm">
+                
+                <img src="{{story.img}}"/>
+            </div>
+          </ng-template>
+        </div>
+        <div class="profile-main add-post">
+          <h5>Add Post</h5>
+          <input type='file' (change)="onSelectFile($event,user)" multiple>
+        </div>
+      </div>
+  </div>
   <div *ngIf="user.posts" class="container"style="padding:15px !important;" >
     <div *ngFor="let post of user.posts" class="col-md-8 col-xs-12 col-sm-12 col-lg-8 post-wrapper">
       <div class="post-header">
@@ -125,7 +163,7 @@
                 <h5 class="posted-time">{{story.posttime}} hours ago</h5>
                 </button>
               </div>
-              <ng-template #template>
+              <ng-template class="col-sm-12 col-xs-12" #template>
                 <div class="modal-header modal-sm">
                   <div class="profile-pic">
                       <img src="{{story.profilepic}}"/>
