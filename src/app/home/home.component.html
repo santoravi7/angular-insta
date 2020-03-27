@@ -27,7 +27,7 @@
       </div>  
       <div class="post-body">
         <div class="crop">
-          <img src="{{post.img}}"/>
+          <img src="{{post.img}}" (dblclick)="updateImg(true,post.id,user)">
         </div>
       </div>
       <div class="post-footer">
@@ -45,11 +45,11 @@
             </div>
           </div>
         </div>
-        <div class="liked-by">
+        <div *ngIf="post.likes>0"  class="liked-by">
           <div class="likedby-profile-pic">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQIi3vEDnvue29P8-GSDrcxFn-pGNcSjoRQomgvqvxPqBB9tIwL"/>
           </div>
-          <div *ngIf="!user.liked>0" class="likedby-uname">Liked by <span class="bold">Santoravi</span> and <span class="bold">{{post.likes}} others</span> 
+          <div class="likedby-uname"><span *ngIf="!post.liked">Liked by <span class="bold">Santoravi</span></span> <span *ngIf="post.liked">You</span> and <span class="bold">{{post.likes}} others</span> 
           </div>
         </div>
         <div class="caption-div">
@@ -61,12 +61,12 @@
             </div>
         </div>
         <div class="comments-section">
-          <div class="view-all">View all <span>160</span> comments</div>
+          <div *ngIf="post.comments.length>3" class="view-all">View all <span>160</span> comments</div>
           <div class="current-user">
-              Santoravi
+              {{user.username}}
             </div>
-            <div class="caption">
-              Comments sent by me !!!
+            <div *ngFor="let comment of (post.comments | slice:post.length - 1)"class="caption">
+              {{comment.comment}}
             </div>
         </div>
         <div class="comments-posted-time">

@@ -21,7 +21,8 @@ export class LoginComponent implements OnInit {
     this.getUsers();
   }
   getUsers():void{
-    this.usersService.getUsers().subscribe(users=>this.users=users)
+    this.usersService.getUsers()
+        .subscribe(users=>this.users=users)
   }
   validate_form(choice : string) : void {
     var userName = (<HTMLInputElement>document.getElementById("user-name")).value;
@@ -32,6 +33,7 @@ export class LoginComponent implements OnInit {
       {
         this.username = "Username cannot be null";
       }
+      
     }
     else if(choice == 'password'){
       this.password=""

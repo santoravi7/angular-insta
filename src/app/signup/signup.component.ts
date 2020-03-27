@@ -33,7 +33,11 @@ export class SignupComponent implements OnInit {
         {
           this.username = "Username cannot be null";
         }
-      
+        for (var value of this.users) {
+          if(userName === value.username){
+            this.username = "Username already exists";
+          }
+        }
       }
       else if(choice == 'password'){
         this.password=""
@@ -41,12 +45,20 @@ export class SignupComponent implements OnInit {
         {
           this.password += "Password cannot be null";
         }
+        else if(pass.length<6){
+          this.password += "Password cannot be less than 6 characters"
+        }
         
       }
       else if(choice == 'email'){
         this.email=""
         if(emailVal.length<1){
           this.email+="Email cannot be null"
+        }
+        for (var value of this.users) {
+          if(emailVal === value.email){
+            this.email = "Email already registered!!! Please login or use another email!";
+          }
         }
       }
       else if(choice == 'fullname'){
