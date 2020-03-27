@@ -18,7 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalContentComponent } from './app.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
-
+import { MyOrderByPipe } from './shared/sort.pipe';
 @NgModule({
   imports:      [ 
     BrowserModule, 
@@ -38,12 +38,13 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     HomeComponent, 
     SignupComponent, 
     MessageComponent,
-    ModalContentComponent 
+    ModalContentComponent,
+    MyOrderByPipe 
   ],
   entryComponents: [
     ModalContentComponent,
   ],
   bootstrap:    [ AppComponent ],
-  providers: [UsersService, MesageService, InMemoryDataService]
+  providers: [UsersService, MesageService, InMemoryDataService,MyOrderByPipe]
 })
 export class AppModule { }

@@ -22,7 +22,7 @@
   <div class="hidden-lg hidden-md col-sm-12 col-xs-12">
     <div class="myprofile" style="padding: 0px 30px;">
         
-        <div *ngFor="let story of user.stories" style="display:inline-block; width:65px;">
+        <div *ngFor="let story of user.stories " style="display:inline-block; width:65px;">
           <button style="border: none;background: none;outline: none;" (click)="openModal(templateXS);">
           <div class="myprofile-pic">
             <div class="crop">
@@ -58,12 +58,12 @@
       </div>
   </div>
   <div *ngIf="user.posts" class="container"style="padding:15px !important;" >
-    <div *ngFor="let post of user.posts" class="col-md-8 col-xs-12 col-sm-12 col-lg-8 post-wrapper">
+    <div *ngFor="let post of (user.posts.reverse()); index as i" class="col-md-8 col-xs-12 col-sm-12 col-lg-8 post-wrapper">
       <div class="post-header">
         <div class="profile-pic">
           <img src="{{post.profilepic}}"/>
         </div>
-        <h4 class="profile-name">{{post.name}}</h4>
+        <h4 class="profile-name">{{post.name}} - {{i}}</h4>
       </div>  
       <div class="post-body">
         <div class="crop">

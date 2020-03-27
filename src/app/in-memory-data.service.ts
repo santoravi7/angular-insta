@@ -18,7 +18,7 @@ export class InMemoryDataService implements InMemoryDbService {
         profilepic: "https://avatars3.githubusercontent.com/u/17864688?s=460&u=bdac48fc1d47ae913915a65e16f972ffb59ea954&v=4",
         posts : [{
           id:1,
-          name:"ScratchedStories",
+          name:"ScratchedStories1",
           profilepic: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQIi3vEDnvue29P8-GSDrcxFn-pGNcSjoRQomgvqvxPqBB9tIwL",
           caption:"My First Post",
           img:"https://i.pinimg.com/originals/4c/28/3b/4c283b0fb76da7a57406ae25bebfa602.jpg",
@@ -32,7 +32,7 @@ export class InMemoryDataService implements InMemoryDbService {
         },
         {
           id:2,
-          name:"ScratchedStories",
+          name:"ScratchedStories2",
           profilepic: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQIi3vEDnvue29P8-GSDrcxFn-pGNcSjoRQomgvqvxPqBB9tIwL",
           caption:"#instaedits #doubletap",
           img:"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSA2zrAgbxuYjZZzrMYPefp6oEjrk48Yy0YdYAVkhGRDlR1rrzw",
@@ -46,7 +46,7 @@ export class InMemoryDataService implements InMemoryDbService {
         },
         {
           id:3,
-          name:"ScratchedStories",
+          name:"ScratchedStories3",
           profilepic: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQIi3vEDnvue29P8-GSDrcxFn-pGNcSjoRQomgvqvxPqBB9tIwL",
           caption:"#instaedits #doubletap",
           img:"https://img.wallpapersafari.com/desktop/1920/1080/59/57/862AkR.jpg",

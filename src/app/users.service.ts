@@ -51,7 +51,7 @@ export class UsersService {
       catchError(this.handleError<User>('addUser'))
     );
   }
-
+  reversedList=[];
   updateUser(user: User): Observable<User> {
     return this.http.put(this.usersUrl, user, this.httpOptions).pipe(
       tap(_ => this.log(`updated note id=${user.id}`)),

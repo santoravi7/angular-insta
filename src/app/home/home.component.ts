@@ -8,7 +8,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/takeWhile';
 import 'rxjs/add/observable/timer'
-
+import { MyOrderByPipe } from '../shared/sort.pipe';
 
 @Component({
   selector: 'app-home',
@@ -18,10 +18,14 @@ import 'rxjs/add/observable/timer'
 export class HomeComponent implements OnInit {
   user:User; modalRef: BsModalRef;
   userPost; alive = true;
-  constructor( private route: ActivatedRoute,private usersService:UsersService,private modalService: BsModalService) { }
-
+  reversedList=[];
+  order:string = 'id';
   ngOnInit() {
    this.getUser();
+  }
+
+  constructor( private route: ActivatedRoute,private usersService:UsersService,private modalService: BsModalService,private orderPipe: MyOrderByPipe) { 
+    console.log("list of objects "+this.user);
   }
 
   openModal(template: TemplateRef<any>) {
@@ -54,7 +58,7 @@ export class HomeComponent implements OnInit {
                 var reader = new FileReader();
 
                 reader.onload = (event:any) => {
-                 
+                   
                    user.posts.push({
                         id:user.posts.length+1,
                         name: user.username,
@@ -74,7 +78,7 @@ export class HomeComponent implements OnInit {
                 reader.readAsDataURL(event.target.files[i]);
         }
     }
-    this.usersService.updateUser(user).subscribe(); 
+    this.usersService.updateUser(user).subscribe();
   }
 
   updateProfile(event,user) {
