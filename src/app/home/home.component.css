@@ -435,6 +435,7 @@ ul {
   display: inline-block;
   font-size: 14px;
   font-family: lato;
+  cursor: pointer;
 }
 
 .stories-name{
@@ -493,17 +494,39 @@ ul {
 .add-post h5{
   text-align: right;
   margin-top: 20px;
+  font-weight: 600;
+  font-family: lato;
+  cursor: pointer;
+}
+
+.newpost h5{
+  margin: 0px auto;
+  margin-top:20px;
+}
+
+.newpost{
+  margin: 0px auto;
+  text-align: center;
+}
+
+.newpost input{
+  margin: 0px auto;
+  width: 180px;
+  height: 30px;
+  margin-top: -10px;
+  cursor: pointer;
 }
 
 .add-post{
   float: right;
 }
 
-.add-post input{
+.add-post input, .newpost input{
   opacity: 0;
   width: 100px;
   position: relative;
   top: -28px;
+  cursor: pointer;
 }
 
 .fake-scroll{
@@ -528,4 +551,9 @@ ul {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(0, 0, 0);
+}
+
+.disp-com{
+  display: inline-block;
+  width: calc(100% - 200px);
 }

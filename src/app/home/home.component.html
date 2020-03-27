@@ -8,10 +8,12 @@
 
 <div class="row mtop-50">
 
-<div class="row">
+<div class="row"> 
   <div *ngIf="!user.posts.length>0" class="container"style="padding:15px !important;" >
     <div class="nopost">
       <img  src="https://image.flaticon.com/icons/svg/1362/1362857.svg" />
+    </div>
+    <div class="newpost"> 
       <h3>No Posts Yet</h3>
       <h3>add a post now</h3>
       <input type='file' (change)="onSelectFile($event,user)" multiple>
@@ -61,31 +63,43 @@
             </div>
         </div>
         <div class="comments-section">
-          <div *ngIf="post.comments.length>3" class="view-all">View all <span>160</span> comments</div>
-          <div class="current-user">
-              {{user.username}}
-            </div>
-            <div *ngFor="let comment of (post.comments | slice:post.length - 1)"class="caption">
-              {{comment.comment}}
-            </div>
+          <div *ngIf="post.comments.length>3">
+              <div  class="view-all">
+                View all <span>{{post.comments.length}}</span> comments
+              </div>
+              <div class="current-user">
+                {{user.username}}
+              </div>
+              <div *ngFor="let comment of (post.commens | slice:post.comments.length - 2)">
+                  <div class="disp-com">{{comment.comment}}</div>
+              </div>
+          </div>
+          <div *ngIf="post.comments.length<3">
+              <div class="current-user">
+                {{user.username}}
+              </div>
+              <div *ngFor="let comment of (post.comments)"class="caption disp-com">
+                  <div class="">{{comment.comment}}</div>
+              </div>
+          </div>
         </div>
         <div class="comments-posted-time">
           {{post.posttime}} hours ago
         </div>
         <div class="comment-textbox">
-          <textarea rows="3"></textarea>
-          <button>Post</button>
+          <textarea id="new-comment"  rows="3"></textarea>
+          <button (click)="addComment(post.id,user);">Post</button>
         </div>
       </div>
     </div>
-    <div class="right-nav hidden-xs hidden-sm">
+    <div *ngIf="user.posts.length>0" class="right-nav hidden-xs hidden-sm">
       <div class="myprofile">
         <div class="myprofile-pic">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQIi3vEDnvue29P8-GSDrcxFn-pGNcSjoRQomgvqvxPqBB9tIwL"/>
+          <img src="{{user.profilepic}}"/>
         </div>
         <div class="profile-main">
-          <h4 class="profile-name">santo ravi</h4>
-          <h5 class="profile-short">santo</h5>
+          <h4 class="profile-name">{{user.username}}</h4>
+          <h5 class="profile-short">{{user.username}}</h5>
         </div>
         <div class="profile-main add-post">
           <h5>Add Post</h5>

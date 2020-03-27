@@ -17,9 +17,15 @@ export class SignupComponent implements OnInit {
   email:string;
   validate: boolean;
   constructor(private router: Router,private usersService: UsersService) { }
-
+  
   ngOnInit() {
+    this.getUsers();
   }
+  getUsers():void{
+    this.usersService.getUsers()
+        .subscribe(users=>this.users=users)
+  }
+
   validate_form(choice : string) : void {
     console.log("validate form");
       
@@ -29,7 +35,7 @@ export class SignupComponent implements OnInit {
       var emailVal = (<HTMLInputElement>document.getElementById("email")).value;
       if(choice == 'username'){
         this.username=""
-        if(userName.length < 1)
+        if(userName == "")
         {
           this.username = "Username cannot be null";
         }
@@ -41,18 +47,15 @@ export class SignupComponent implements OnInit {
       }
       else if(choice == 'password'){
         this.password=""
-        if(pass.length < 1)
+        if(pass == "")
         {
           this.password += "Password cannot be null";
-        }
-        else if(pass.length<6){
-          this.password += "Password cannot be less than 6 characters"
         }
         
       }
       else if(choice == 'email'){
         this.email=""
-        if(emailVal.length<1){
+        if(emailVal == ""){
           this.email+="Email cannot be null"
         }
         for (var value of this.users) {
@@ -63,7 +66,7 @@ export class SignupComponent implements OnInit {
       }
       else if(choice == 'fullname'){
         this.fullname=""
-        if(fName.length<1){
+        if(fName == ""){
           this.fullname+="Fullname cannot be null"
         }
       }
@@ -84,9 +87,12 @@ export class SignupComponent implements OnInit {
   addUser(username: string,password:string,fullname:string,email:string): void {
     console.log("addUser");
     username=username.trim();
+    var profilepic = "https://image.flaticon.com/icons/svg/1246/1246351.svg";
+    var stories = [];
+    var suggestions = [];
     var posts=[];
     if (!username) { return; }
-    this.usersService.addUser({ username,password,fullname,email,posts})
+    this.usersService.addUser({ username,password,fullname,email,profilepic,posts,stories,suggestions})
       .subscribe(user => {
         this.users.push(user);
       });

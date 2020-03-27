@@ -53,7 +53,6 @@ export class UsersService {
   }
 
   updateUser(user: User): Observable<User> {
-    console.log("updated user -- "+user.posts.length+" iii ---- yser len -- "+user.stories.length)
     return this.http.put(this.usersUrl, user, this.httpOptions).pipe(
       tap(_ => this.log(`updated note id=${user.id}`)),
       catchError(this.handleError<any>('updateUser'))

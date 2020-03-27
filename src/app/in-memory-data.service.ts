@@ -95,15 +95,28 @@ export class InMemoryDataService implements InMemoryDbService {
         email : "santoravi7@gmail.com",
         profilepic: "https://avatars3.githubusercontent.com/u/17864688?s=460&u=bdac48fc1d47ae913915a65e16f972ffb59ea954&v=4",
         posts: [{
-
-        }],
-        stories : [{
           id:1,
           name:"ScratchedStories",
           profilepic: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQIi3vEDnvue29P8-GSDrcxFn-pGNcSjoRQomgvqvxPqBB9tIwL",
+          caption:"My First Post",
           img:"https://i.pinimg.com/originals/4c/28/3b/4c283b0fb76da7a57406ae25bebfa602.jpg",
-          posttime: "5"
+          likes:"251",
+          comments:[{
+            comment:"this is first comment"
+          }],
+          savepost: false,
+          posttime: "5",
+          liked: false
         }],
+        stories : [
+          {
+            id:1,
+            name:"ScratchedStories",
+            profilepic: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQIi3vEDnvue29P8-GSDrcxFn-pGNcSjoRQomgvqvxPqBB9tIwL",
+            img:"https://i.pinimg.com/originals/4c/28/3b/4c283b0fb76da7a57406ae25bebfa602.jpg",
+            posttime: "5"
+          }
+        ],
         suggestions :[
           {
             id:1,

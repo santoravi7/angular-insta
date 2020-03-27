@@ -16,7 +16,7 @@ import 'rxjs/add/observable/timer'
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  user:User[]; modalRef: BsModalRef;
+  user:User; modalRef: BsModalRef;
   userPost; alive = true;
   constructor( private route: ActivatedRoute,private usersService:UsersService,private modalService: BsModalService) { }
 
@@ -76,6 +76,16 @@ export class HomeComponent implements OnInit {
     }
     this.usersService.updateUser(user).subscribe(); 
   }
+
+  addComment(postId:number,user:User):void{
+    var newComment = (<HTMLInputElement>document.getElementById("new-comment")).value;
+    console.log("new comment === "+newComment+"---id==="+postId+"==user---"+user.posts[postId-1]);
+    user.posts[postId-1].comments.push({
+      comment:newComment
+    });
+    (<HTMLInputElement>document.getElementById("new-comment")).value="";
+    this.usersService.updateUser(user).subscribe(); 
+  };
 
   updateImg(liked:boolean, postId:number, user:User):void{
     user.posts[postId-1].liked = liked;

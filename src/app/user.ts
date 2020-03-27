@@ -4,6 +4,7 @@ export interface User {
     password:string;
     fullname:string;
     email:string;
+    profilepic:string;
     posts: [];
     stories: [];
     suggesstions: [];
