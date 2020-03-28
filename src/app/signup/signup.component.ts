@@ -4,28 +4,66 @@ import { Newuser } from '../newuser'
 import { USER } from '../user-credentials';
 import { RouterModule, Router } from '@angular/router';
 import { UsersService } from '../users.service';
+import { AbstractControl,FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  registerForm: FormGroup;submitted:boolean=false;
   users : User[];
   username:string;
   password:string;
   fullname:string;
-  email:string;
+  email:string;sample;
   validate: boolean;
-  constructor(private router: Router,private usersService: UsersService) { }
+  constructor(private router: Router,private usersService: UsersService,private formBuilder: FormBuilder) {      
+  }
   
   ngOnInit() {
     this.getUsers();
+    this.registerForm = this.formBuilder.group({
+            userName: ['', Validators.required],
+            fullName: ['', Validators.required],
+            email: ['', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+            password: ['', [Validators.required, Validators.minLength(3)]]
+        },{validator: this.uniqueValidator.bind(this)}); 
   }
+
+  uniqueValidator(control: AbstractControl) {
+    const name = control.get('email').value;
+    return this.check(name);
+  }
+
+  check(name:string){
+    
+      if(name === "santoravi7@gmail.com"){
+        console.log("emails same");
+        return false;
+      }
+    
+  }
+
   getUsers():void{
     this.usersService.getUsers()
         .subscribe(users=>this.users=users)
   }
 
+  get f() { return this.registerForm.controls; }
+
+  onSubmit(){
+     this.submitted = true;
+
+        // stop here if form is invalid
+        if (this.registerForm.invalid) {
+            return;
+        }
+        this.addUser(this.registerForm.value.userName, this.registerForm.value.fullName,this.registerForm.value.email,this.registerForm.value.password);
+        this.validate=true
+        this.router.navigate(['/']);
+        
+  }
   validate_form(choice : string) : void {
     console.log("validate form");
       
@@ -84,7 +122,7 @@ export class SignupComponent implements OnInit {
         
       }
   }
-  addUser(username: string,password:string,fullname:string,email:string): void {
+  addUser(username: string,fullname:string,email:string,password:string): void {
     console.log("addUser");
     username=username.trim();
     var profilepic = "https://image.flaticon.com/icons/svg/1246/1246351.svg";

@@ -120,7 +120,7 @@ export class InMemoryDataService implements InMemoryDbService {
         username :"1234" , 
         password : "user1",
         fullname : "santosh Ravi",
-        email : "santoravi7@gmail.com",
+        email : "santoravi@gmail.com",
         profilepic: "https://avatars3.githubusercontent.com/u/17864688?s=460&u=bdac48fc1d47ae913915a65e16f972ffb59ea954&v=4",
         posts: [{
           id:1,

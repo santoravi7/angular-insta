@@ -14,7 +14,7 @@ import { UsersService } from './users.service';
 import { MessageComponent } from './message/message.component';
 import { MesageService } from './mesage.service';
 import { AppRoutingModule } from './app-routing.module';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalContentComponent } from './app.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -29,7 +29,8 @@ import { MyOrderByPipe } from './shared/sort.pipe';
     ),
     AppRoutingModule,
     ModalModule.forRoot(),  
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
     
   declarations: [ 

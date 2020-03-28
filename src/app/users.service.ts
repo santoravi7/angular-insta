@@ -45,7 +45,7 @@ export class UsersService {
   }
 
   addUser (user: User): Observable<User> {
-    console.log("in service")
+    console.log("Add user in service");
     return this.http.post<User>(this.usersUrl, user, this.httpOptions).pipe(
       tap((newUser: User) => this.log(`added hero w/ id=${newUser.id}`)),
       catchError(this.handleError<User>('addUser'))

@@ -7,33 +7,43 @@
           <div class="signup-text">
             <h3>Signup to see photos and videos from your friends!!</h3>
           </div>
-          <div class="form-group">
-              <div *ngIf="validate==false"><p class="errors">Email Id already Exists</p></div>
-            <h4>Email</h4>
-            <input type="text" class="form-text-field" id="email" (keydown.tab)="validate_form('email')" (focusout)="validate_form('email')">
-            <span class="errors" *ngIf="email">{{email}}</span>
-          </div> 
-          <div class="form-group">
-              <div *ngIf="validate==false"><p class="errors">Full Name cannot be null</p></div>
-            <h4>Full Name</h4>
-            <input type="text" class="form-text-field" id="full-name" (keydown.tab)="validate_form('fullname')" (focusout)="validate_form('fullname')">
-            <span class="errors" *ngIf="fullname">{{fullname}}</span>
-          </div>  
-          <div class="form-group">
-              <div *ngIf="validate==false"><p class="errors">Username or password incorrect</p></div>
-            <h4>Username</h4>
-            <input type="text" class="form-text-field" id="user-name" (keydown.tab)="validate_form('username')" (focusout)="validate_form('username')">
-            <span class="errors" *ngIf="username">{{username}}</span>
-          </div>   
-          <div class="form-group">
-            <h4>Password</h4>
-            <input type="password" class="form-text-field" id="password" (keydown.tab)="validate_form('password')" (focusout)="validate_form('password')">
-            <span class="errors" *ngIf="password">{{password}}</span>            
-          </div>
-          <div class="btn-section">
-            <div class="clr10"></div>
-              <button id="login" class="btn btn-primary event-view-btn" (click)="validate_form('register');" >Register</button>
-          </div>
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <h4>Username</h4>
+                        <input type="text" formControlName="userName" class="form-text-field" [ngClass]="{ 'is-invalid': submitted && f.userName.errors }" />
+                        <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+                            <div *ngIf="f.userName.errors.required">First Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h4>Full Name</h4>
+                        <input type="text" formControlName="fullName" class="form-text-field" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }" />
+                        <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+                            <div *ngIf="f.fullName.errors.required">Last Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h4>Email</h4>
+                        <input type="text" formControlName="email" class="form-text-field" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors.required">Email is required</div>
+                            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h4>Password</h4>
+                        <input type="password" formControlName="password" class="form-text-field" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <div *ngIf="f.password.errors.required">Password is required</div>
+                            <div *ngIf="f.password.errors.minlength">Password must be at least 3 characters</div>
+                        </div>
+                    </div>
+                    <div class="btn-section">
+                      <div class="clr10"></div>
+                        <button class="btn btn-primary event-view-btn" >Register</button>
+                    </div>
+                    
+                </form>
           
       </div>          
       <div *ngIf="validate"></div> 

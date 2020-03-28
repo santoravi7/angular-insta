@@ -26,6 +26,7 @@ body{
   padding: 20px;
   text-align: center;
   margin-top: 20px;
+  background: #fff;
 }
 
 .login-form .btn-section{
@@ -73,12 +74,13 @@ body{
 }
 
 .form-group h4{
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   font-weight: 400;
+  font-family: lato;
 }
 
 .form-group input{
-  width: 90%;
+  width: 100%;
 }
 
 .signup-text h3{
@@ -87,4 +89,20 @@ body{
   color: #a0a0a0;
   font-size: 18px;
   line-height: 1.5;
+}
+
+.m-top30{
+  margin-top: 30px;
+}
+
+.is-invalid{
+      border: 1px solid red;
+}
+
+.invalid-feedback{
+  font-size: 12px;
+  font-family: lato;
+  color: red;
+  margin-top: 6px;
+  margin-bottom: 1rem;
 }
