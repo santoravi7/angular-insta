@@ -1,5 +1,5 @@
 <div class="navbar-header navbar-fixed-top">  
-    <div class="container">
+    <div class="container-fluid white-bg">
     <a class="navbar-brand" href="/home/{{user.id}}">
         <h3>Instagram</h3>
     </a>
@@ -7,7 +7,7 @@
 </div>
 
 <div class="row mtop-50">
-  <div class="container"> 
+  <div class=""> 
     <div *ngIf="!user.posts.length>0" class="row"style="padding:15px !important;" >
       <div class="nopost">
         <img  src="https://image.flaticon.com/icons/svg/1362/1362857.svg" />
@@ -56,7 +56,7 @@
           </div>
         </div>
     </div>
-    <div *ngIf="user.posts" class="container"style="padding:15px !important;" >
+    <div *ngIf="user.posts" class=""style="padding:15px !important;" >
       <div *ngFor="let post of (user.posts.reverse()); index as i" class="col-md-8 col-xs-12 col-sm-12 col-lg-8 post-wrapper">
       <div class="post-header">
         <div class="profile-pic">
@@ -105,22 +105,22 @@
               <div  class="view-all">
                 View all <span>{{post.comments.length}}</span> comments
               </div>
-              <div class="current-user">
-                {{user.username}}
-              </div>
-              <div *ngFor="let comment of (post.commens | slice:post.comments.length - 2)">
-                  <div class="disp-com">{{comment.comment}}</div>
-              </div>
-          </div>
-          <div *ngIf="post.comments.length<2">
-              <div *ngFor="let comment of (post.comments)"class="caption disp-com">
+              
+              <div *ngFor="let comment of (post.comments | slice:post.comments.length - 2)">
                   <div class="current-user">
                     {{user.username}}
                   </div>
-                  <div class="">{{comment.comment}}</div>
+                  <div class="comment-div">{{comment.comment}}</div>
               </div>
           </div>
-          {{post.comments.length}}
+          <div *ngIf="post.comments.length<3">
+              <div *ngFor="let comment of (post.comments)"class="caption disp-com" style="margin-left:0px;">
+                  <div class="current-user">
+                    {{user.username}}
+                  </div>
+                  <div class="comment-div">{{comment.comment}}</div>
+              </div>
+          </div>
         </div>
         <div class="comments-posted-time">
           {{post.posttime}} hours ago

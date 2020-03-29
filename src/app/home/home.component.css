@@ -237,7 +237,8 @@ ul {
 }
 
 .mtop-50{
-  margin-top: 60px;
+  margin: 0px;
+  margin-top: 70px;
 }
 
 .profile-pic{
@@ -390,7 +391,7 @@ ul {
 }
 
 .post-wrapper{
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .profile-name{
@@ -572,4 +573,15 @@ ul {
     width: 50px;
     height: 50px;
     z-index: 2;
+}
+
+.comment-div{
+  display: inline-block;
+  width: 75%;
+  font-weight: 400;
+  margin-left: 15px;
+}
+
+.white-bg{
+  background: #fff;
 }

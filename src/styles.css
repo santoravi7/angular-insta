@@ -7,7 +7,7 @@ app-home{
 
 .container-fluid{
   background: #f9f9f9;
-  margin: 0px 70px;
+  margin: 0px 150px;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -23,7 +23,7 @@ app-home{
 @media (min-width: 1200px){ 
   .right-nav {
     width: 23% !important;
-    right: 140px !important;
+    right: 180px !important;
   }
 }
 
