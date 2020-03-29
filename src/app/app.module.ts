@@ -19,6 +19,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalContentComponent } from './app.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { MyOrderByPipe } from './shared/sort.pipe';
+import { PostsComponent } from './posts/posts.component';
 @NgModule({
   imports:      [ 
     BrowserModule, 
@@ -40,7 +41,8 @@ import { MyOrderByPipe } from './shared/sort.pipe';
     SignupComponent, 
     MessageComponent,
     ModalContentComponent,
-    MyOrderByPipe 
+    MyOrderByPipe,
+    PostsComponent 
   ],
   entryComponents: [
     ModalContentComponent,

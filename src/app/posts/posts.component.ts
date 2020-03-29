@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from '../user'
 import { USER } from '../user-credentials';
 import { UsersService } from '../users.service';
@@ -9,13 +9,13 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/takeWhile';
 import 'rxjs/add/observable/timer'
 import { MyOrderByPipe } from '../shared/sort.pipe';
-
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-posts',
+  templateUrl: './posts.component.html',
+  styleUrls: ['./posts.component.css']
 })
-export class HomeComponent implements OnInit {
+export class PostsComponent implements OnInit {
+
   user:User; modalRef: BsModalRef;
   userPost; alive = true;
   reversedList=[];
@@ -28,6 +28,9 @@ export class HomeComponent implements OnInit {
     console.log("list of objects "+this.user);
   }
 
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
 
   getUser(): void {
     const id = +this.route.snapshot.paramMap.get('id');
@@ -36,11 +39,6 @@ export class HomeComponent implements OnInit {
         user => this.user = user
       );
   }
-
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
-  }
-    
 
   watchAll():void{
       Observable.timer(0,10000)
